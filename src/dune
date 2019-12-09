@@ -1,0 +1,26 @@
+(library
+ (name        esplora)
+ (public_name esplora)
+ (modules esplora)
+ (preprocess (pps ppx_sexp_conv))
+ (libraries
+   ptime
+   digestif.c
+   bech32
+   base58
+   hex
+   sexplib
+   ocplib-json-typed))
+
+(library
+ (name        esplora_async)
+ (public_name esplora-async)
+ (modules esplora_async)
+ (preprocess (pps ppx_sexp_conv))
+ (libraries
+   ocplib-json-typed
+   esplora
+   core
+   async
+   fastrest
+   uri))
